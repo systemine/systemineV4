@@ -17,7 +17,7 @@ export default function RefundPolicyPage() {
           Refund Policy
         </h1>
         <p className="mt-3 font-body text-sm text-ink-soft">
-          Last updated: [update this date when you publish]
+          Last updated: [July 29, 2026]
         </p>
 
         <div className="prose-paper mt-10">

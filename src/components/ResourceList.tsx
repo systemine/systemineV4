@@ -11,7 +11,7 @@ export default function ResourceList({ resources }: { resources: ProductResource
           <li key={resource.file}>
             <a
               href={resource.file}
-              download
+            
               className="flex items-center gap-3 rounded-xl2 border border-line/70 bg-paper-alt px-5 py-3.5 font-body text-sm text-ink transition-colors duration-200 hover:border-wood/60 hover:text-wood"
             >
               <span aria-hidden="true">📄</span>
