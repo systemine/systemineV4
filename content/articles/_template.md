@@ -15,17 +15,44 @@ fill in the frontmatter, write your piece below in plain markdown, and
 set `published: true` when it's ready.
 
 ## How to use this file
+(this is a heading)
 
-1. Duplicate this file inside `content/articles/`.
-2. Rename it to match your article, e.g. `why-just-be-more-organized.md`.
-3. Fill in the frontmatter fields at the top.
-4. Add a cover image (recommended) to
-   `public/images/articles/your-article-slug/`.
-5. **Optional video** — paste a normal YouTube or Vimeo link into the
-   `video` field to have it appear as a responsive player near the top
-   of the article. Leave it blank (`""`) if there's no video.
-6. Write the article itself below the frontmatter using normal markdown.
-   Any image you drop in with `![description](/images/articles/.../photo.jpg)`
-   is automatically made responsive — no extra formatting needed.
-7. Set `published: true` and it will appear on `/articles` automatically,
-   newest first, based on the `date` field.
+write your content
+
+## A Second Heading
+
+Moving into a new apartment comes with dozens of little decisions.
+
+Some of them are obvious.
+
+Some of them sneak up on you.
+
+> Home doesn't become yours in one weekend. (>this is for a quote)
+> It becomes yours one tiny routine at a time.
+
+---
+
+### A Small Checklist (- is for listing things)
+
+- Change your address
+- Save important documents
+- Find your nearest grocery store
+- Make your first shopping list
+- Celebrate your first meal at home
+
+---
+
+Here's another helpful article:
+
+[9 Ways We Made Moving Into a New Apartment Feel Less Overwhelming](/articles/9-ways-we-made-moving-into-a-new-apartment-feel-less-overwhelming)
+
+Or visit the
+[Systemine website](https://systemine-v4.vercel.app)
+
+---
+
+![Cozy apartment](/images/articles/home-finally/balcony.png)
+
+*Your home doesn't have to be perfect to feel peaceful.* ( * is for italics)
+
+
