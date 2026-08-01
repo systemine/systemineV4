@@ -1,7 +1,7 @@
 ---
 title: "Home, Finally • A First Apartment Survival Guide"
 slug: "home-finally"
-price: "$7.77"
+price: "$4.44"
 category: "Life Transitions"
 cover: "/images/products/home-finally/cover.png"
 gallery:
