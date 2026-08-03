@@ -47,7 +47,7 @@ Here's another helpful article:
 [9 Ways We Made Moving Into a New Apartment Feel Less Overwhelming](/articles/9-ways-we-made-moving-into-a-new-apartment-feel-less-overwhelming)
 
 Or visit the
-[Systemine website](https://systemine-v4.vercel.app)
+[Home, Finally](https://systemine-v4.vercel.app/shelves/home-finally)
 
 ---
 
