@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "digital systems for real life",
   description:
     "Systemine makes thoughtfully designed digital products, templates and small tools for the parts of life nobody teaches you how to manage. No hustle. No hype. Just things that help.",
-  url: "https://www.systemine.com",
+  url: "https://www.systemine.fyi",
   email: "systeminestore@gmail.com",
 };
 
