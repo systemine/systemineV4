@@ -16,14 +16,14 @@ export default function PurchaseButton({
   purchaseUrlIndia,
   title,
 }: PurchaseButtonProps) {
-  const [showIndia, setShowIndia] = useState(false);
+  const [showAlt, setShowAlt] = useState(false);
 
   useEffect(() => {
     if (!purchaseUrlIndia) return;
     try {
       const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       if (timeZone === "Asia/Calcutta" || timeZone === "Asia/Kolkata") {
-        setShowIndia(true);
+        setShowAlt(true);
       }
     } catch {
       // if detection fails for any reason, just keep the default link
@@ -38,7 +38,8 @@ export default function PurchaseButton({
     );
   }
 
-  const activeUrl = showIndia && purchaseUrlIndia ? purchaseUrlIndia : purchaseUrl;
+  const activeUrl = showAlt && purchaseUrlIndia ? purchaseUrlIndia : purchaseUrl;
+  const fallbackUrl = showAlt ? purchaseUrl : purchaseUrlIndia;
 
   return (
     <div className="flex flex-col items-start gap-2">
@@ -50,14 +51,15 @@ export default function PurchaseButton({
       >
         Get {title}
       </a>
-      {purchaseUrlIndia && (
-        <button
-          type="button"
-          onClick={() => setShowIndia((prev) => !prev)}
+      {fallbackUrl && (
+        <a
+          href={fallbackUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-body text-xs text-ink-soft underline-offset-2 hover:underline"
         >
-          {showIndia ? "Not in India? Pay in $ instead" : "Paying from India? Switch to ₹ (UPI)"}
-        </button>
+          Trouble with this payment link? Try an alternate option
+        </a>
       )}
     </div>
   );
