@@ -41,6 +41,7 @@ featured: true
 published: true
 
 purchase_url: "https://rzp.io/rzp/Q1w4bHMc"
+purchase_url_india: "https://rzp.io/rzp/FoVkICXB"
 portal_slug: "home-finally"
 description: "A calm digital home base for first apartments, first paychecks, and the everyday systems that make living alone easier"
 ---

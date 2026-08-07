@@ -16,6 +16,7 @@ export interface Product {
   featured: boolean;
   published: boolean;
   purchaseUrl: string;
+  purchaseUrlIndia?: string;
   portalSlug: string | null;
   description: string;
   contentHtml: string;

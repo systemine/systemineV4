@@ -6,6 +6,7 @@ import Container from "@/components/Container";
 import ProductGallery from "@/components/ProductGallery";
 import ResourceList from "@/components/ResourceList";
 import VideoEmbed from "@/components/VideoEmbed";
+import PurchaseButton from "@/components/PurchaseButton";
 import { getAllProductSlugs, getAllProducts, getProductBySlug } from "@/lib/products";
 
 export function generateStaticParams() {
@@ -89,20 +90,11 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <span className="font-display text-2xl text-ink">
               {product.price}
             </span>
-            {product.purchaseUrl ? (
-              <a
-                href={product.purchaseUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-ink px-7 py-3.5 font-body text-sm font-medium text-paper transition-transform duration-300 ease-gentle hover:-translate-y-0.5 hover:bg-wood-deep"
-              >
-                Get {product.title}
-              </a>
-            ) : (
-              <span className="font-body text-sm italic text-ink-soft">
-                On its way soon — check back shortly.
-              </span>
-            )}
+            <PurchaseButton
+             purchaseUrl={product.purchaseUrl}
+             purchaseUrlIndia={product.purchaseUrlIndia}
+             title={product.title}
+             />
           </div>
 
           {product.contentHtml && (

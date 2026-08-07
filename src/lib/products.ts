@@ -51,6 +51,7 @@ function readProductFile(filename: string): Product | null {
     featured: Boolean(data.featured),
     published: data.published !== false,
     purchaseUrl: data.purchase_url || data.purchaseUrl || "",
+    purchaseUrlIndia: data.purchase_url_india || "",
     portalSlug: data.portal_slug || data.portalSlug || null,
     description: data.description || "",
     contentHtml: renderMarkdown(content),

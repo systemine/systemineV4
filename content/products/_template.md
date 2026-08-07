@@ -18,6 +18,7 @@ tags: ["moving", "checklist", "first apartment"]
 featured: false
 published: false
 purchase_url: "https://your-razorpay-link-goes-here.example"
+purchase_url_india: "razorpay link for indian clients"
 portal_slug: "moving-out-survival-kit"
 description: "A calm, step-by-step system for moving out without losing your mind — from the two-month mark to the last box."
 ---
