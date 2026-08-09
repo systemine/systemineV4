@@ -62,7 +62,7 @@ Not because I think everyone needs another checklist. There are plenty of those.
 
 “You’re remembering them for the very first time, and that is okay.”
 
-You can get my guide [HERE](https://systemine-v4.vercel.app/shelves/home-finally)
+You can get my guide [HERE](https://www.systemine.fyi/shelves/home-finally)
 
 If you’ve just picked up your keys…If your boxes are still stacked in the corner…If your fridge currently contains one bottle of water and a questionable amount of optimism…You’re doing better than you think.
 
@@ -70,7 +70,7 @@ One day you’ll know exactly how much rice to cook. You’ll have a favourite g
 
 It doesn’t feel like your first apartment anymore. It now feels like home!
 
-If this has helped you in anyway, allow me to present to you [Home, Finally](https://systemine-v4.vercel.app/shelves/home-finally)- One system to keep your life sorted in your new apartment!
+If this has helped you in anyway, allow me to present to you [Home, Finally](https://www.systemine.fyi/shelves/home-finally)- One system to keep your life sorted in your new apartment!
 
 
 

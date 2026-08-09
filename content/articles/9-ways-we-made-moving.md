@@ -111,7 +111,7 @@ Leave yourself room to change your mind.
 
 ## Looking for a Little More Structure?
 
-> If you’d rather not keep everything in your head, I’ve created [Home, Finally](https://systemine-v4.vercel.app/shelves/home-finally) to make the complete process less chaotic.
+> If you’d rather not keep everything in your head, I’ve created [Home, Finally](https://www.systemine.fyi/shelves/home-finally) to make the complete process less chaotic.
 
 It brings together checklists, planners, room-by-room organization, budgets, shopping lists, and all the little details that are easy to forget when you’re busy building a new routine.
 

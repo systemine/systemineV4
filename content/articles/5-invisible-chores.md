@@ -164,6 +164,6 @@ It was to make independent living feel a little lighter.
 
 If you’re standing at the beginning of your first apartment journey, or you’re already in the middle of it wondering why your brain feels so full all the time, I hope it helps.
 
-You can have a look at [Home, Finally HERE](https://systemine-v4.vercel.app/shelves/home-finally)
+You can have a look at [Home, Finally HERE](https://www.systemine.fyi/shelves/home-finally)
 
 *Peace of mind before, during AND after moving into your new place is just a click away.*
