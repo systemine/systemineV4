@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     template: `%s — ${SITE.name}`,
   },
   description: SITE.description,
+  verification: {
+  other: {
+    "p:domain_verify": "f1c909cd9daa82620ea8df5f02544d57",
+  },
+},
   openGraph: {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
