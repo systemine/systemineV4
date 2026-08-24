@@ -32,8 +32,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   if (!product) notFound();
 
   const related = getAllProducts()
-    .filter((p) => p.category === product.category && p.slug !== product.slug)
-    .slice(0, 3);
+  .filter(
+    (p) =>
+      p.slug !== product.slug &&
+      p.categories.some((category) => product.categories.includes(category))
+  )
+  .slice(0, 3);
 
   return (
     <Container className="py-16 sm:py-20">
@@ -64,7 +68,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
         <div>
           <span className="font-body text-xs uppercase tracking-wide text-moss">
-            {product.category}
+          {product.categories.join(" · ")}
           </span>
           <h1 className="mt-3 font-display text-3xl text-ink sm:text-4xl">
             {product.title}
@@ -127,7 +131,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {related.length > 0 && (
         <div className="mt-24 border-t border-line pt-12">
           <h2 className="font-display text-2xl text-ink">
-            More from {product.category}
+           More from {product.categories[0]}
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
