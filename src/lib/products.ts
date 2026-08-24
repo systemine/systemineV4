@@ -42,7 +42,11 @@ function readProductFile(filename: string): Product | null {
     slug,
     title: data.title,
     price: data.price ? String(data.price) : "",
-    category: data.category || "Uncategorized",
+    categories: Array.isArray(data.categories)
+    ? data.categories
+    : data.category
+    ? [data.category]
+    : ["Uncategorized"],
     cover: data.cover || data.image || null,
     gallery: Array.isArray(data.gallery) ? data.gallery : [],
     video: data.video || null,
@@ -92,12 +96,15 @@ export function getShelves(): Shelf[] {
   const byCategory = new Map<string, Product[]>();
 
   for (const product of products) {
-    const list = byCategory.get(product.category) || [];
-    list.push(product);
-    byCategory.set(product.category, list);
+    for (const category of product.categories) {
+      const list = byCategory.get(category) || [];
+      list.push(product);
+      byCategory.set(category, list);
+    }
   }
 
-  const known = CATEGORY_ORDER.filter((c) => byCategory.has(c));
+  const known = CATEGORY_ORDER;
+
   const unknown = [...byCategory.keys()]
     .filter((c) => !CATEGORY_ORDER.includes(c))
     .sort((a, b) => a.localeCompare(b));

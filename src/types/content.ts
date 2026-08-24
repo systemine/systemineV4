@@ -7,7 +7,7 @@ export interface Product {
   slug: string;
   title: string;
   price: string;
-  category: string;
+  categories: string[];
   cover: string | null;
   gallery: string[];
   video: string | null;

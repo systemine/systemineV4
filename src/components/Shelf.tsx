@@ -12,11 +12,23 @@ export default function Shelf({ shelf }: { shelf: ShelfType }) {
           {shelf.products.length} {shelf.products.length === 1 ? "item" : "items"}
         </span>
       </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {shelf.products.map((product) => (
-          <ProductCard key={product.slug} product={product} />
-        ))}
-      </div>
+            {shelf.products.length > 0 ? (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {shelf.products.map((product) => (
+            <ProductCard key={product.slug} product={product} />
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-xl2 border border-line/70 bg-paper-alt px-8 py-12 text-center">
+          <h3 className="font-display text-xl text-ink">
+            This shelf is being stocked.
+          </h3>
+          <p className="mx-auto mt-3 max-w-md font-body text-sm leading-relaxed text-ink-soft">
+            We&rsquo;re making things for this part of being human.
+            Nothing here yet, but it&rsquo;s coming.
+          </p>
+        </div>
+      )}
       {/* wood-grain shelf ledge */}
       <div
         aria-hidden="true"
