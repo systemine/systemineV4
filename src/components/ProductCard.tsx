@@ -25,7 +25,7 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5">
         <span className="font-body text-xs uppercase tracking-wide text-moss">
-          {product.category}
+          {product.categories.join(" · ")}
         </span>
         <h3 className="font-display text-lg leading-snug text-ink">
           {product.title}
