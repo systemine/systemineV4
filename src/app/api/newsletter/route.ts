@@ -23,8 +23,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const response = await fetch(
-      `https://api.kit.com/v4/forms/${KIT_FORM_ID}/subscribers`,
+    const emailAddress = email.trim();
+
+    // Step 1: Create or retrieve the subscriber.
+    const subscriberResponse = await fetch(
+      "https://api.kit.com/v4/subscribers",
       {
         method: "POST",
         headers: {
@@ -32,14 +35,55 @@ export async function POST(request: Request) {
           "X-Kit-Api-Key": apiKey,
         },
         body: JSON.stringify({
-          email_address: email.trim(),
+          email_address: emailAddress,
         }),
       }
     );
 
-    if (!response.ok) {
-      const errorData = await response.text();
-      console.error("Kit API error:", response.status, errorData);
+    if (!subscriberResponse.ok) {
+      const errorData = await subscriberResponse.text();
+      console.error(
+        "Kit subscriber creation error:",
+        subscriberResponse.status,
+        errorData
+      );
+
+      return NextResponse.json(
+        { error: "Could not register this email address." },
+        { status: 502 }
+      );
+    }
+
+    const subscriberData = await subscriberResponse.json();
+    const subscriberId = subscriberData.subscriber?.id;
+
+    if (!subscriberId) {
+      console.error("Kit did not return a subscriber ID.");
+      return NextResponse.json(
+        { error: "Could not register this email address." },
+        { status: 502 }
+      );
+    }
+
+    // Step 2: Add the subscriber to the Systemine newsletter form.
+    const formResponse = await fetch(
+      `https://api.kit.com/v4/forms/${KIT_FORM_ID}/subscribers/${subscriberId}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Kit-Api-Key": apiKey,
+        },
+      }
+    );
+
+    if (!formResponse.ok) {
+      const errorData = await formResponse.text();
+      console.error(
+        "Kit form subscription error:",
+        formResponse.status,
+        errorData
+      );
 
       return NextResponse.json(
         { error: "Could not subscribe this email address." },
