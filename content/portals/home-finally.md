@@ -15,7 +15,7 @@ faq:
     answer: "Yes — feel free to duplicate the template as many times as you need."
 resources:
   - label: "Bonus: Hydration Tracker!!"
-    file: "/files/home-finally/main file.pdf"
+    file: "/images/products/home-finally/hydration.png"
 changelog:
   - version: "1.1"
     date: "2026-05-06"
@@ -41,4 +41,4 @@ published: true
 4. Select **Duplicate** in the top-right corner.
 5. The template will be copied into your own Notion workspace.
 
-That's it. Welcome home. 🌿
+That's it. Welcome home.
