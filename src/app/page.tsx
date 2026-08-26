@@ -7,6 +7,7 @@ import ArticleCard from "@/components/ArticleCard";
 import HomeCarousel from "@/components/HomeCarousel";
 import EmptyState from "@/components/EmptyState";
 import NewsletterForm from "@/components/NewsletterForm";
+import AnimatedShelf from "@/components/AnimatedShelf";
 import { getFeaturedProducts } from "@/lib/products";
 import { getAllArticles } from "@/lib/articles";
 import { CATEGORY_ORDER } from "@/lib/constants";
@@ -57,17 +58,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative mx-auto mt-16 w-full max-w-4xl overflow-hidden rounded-xl2 shadow-lift">
-            <Image
-              src="/images/brand/hero-cover.png"
-              alt="A cozy, plant-filled desk corner — the world of Systemine"
-              width={1983}
-              height={793}
-              priority
-              className="h-auto w-full object-cover"
-              sizes="(min-width: 1024px) 896px, 100vw"
-            />
-          </div>
+          <AnimatedShelf />
         </Container>
       </section>
 
