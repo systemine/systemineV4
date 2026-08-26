@@ -4,7 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import VideoEmbed from "@/components/VideoEmbed";
-import { getAllArticleSlugs, getArticleBySlug } from "@/lib/articles";
+import { getAllArticleSlugs, getArticleBySlug, getAllArticles } from "@/lib/articles";
+import ReadNext from "@/components/ReadNext";
 
 export function generateStaticParams() {
   return getAllArticleSlugs().map((slug) => ({ slug }));
@@ -37,9 +38,22 @@ function formatDate(dateStr: string) {
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const article = getArticleBySlug(params.slug);
-  if (!article) notFound();
+if (!article) notFound();
 
-  return (
+const readNextArticles = getAllArticles()
+  .filter((candidate) => candidate.slug !== article.slug)
+  .sort((a, b) => {
+    const aSharedTags = a.tags.filter((tag) => article.tags.includes(tag)).length;
+    const bSharedTags = b.tags.filter((tag) => article.tags.includes(tag)).length;
+
+    if (aSharedTags !== bSharedTags) {
+      return bSharedTags - aSharedTags;
+    }
+
+    return a.date < b.date ? 1 : -1;
+  });
+
+return (
     <article className="py-16 sm:py-20">
       <Container className="max-w-3xl">
         <Link
@@ -99,6 +113,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         )}
+                <ReadNext articles={readNextArticles} />
       </Container>
     </article>
   );
