@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import Sprig from "@/components/Sprig";
 import ProductCard from "@/components/ProductCard";
 import ArticleCard from "@/components/ArticleCard";
+import HomeCarousel from "@/components/HomeCarousel";
 import EmptyState from "@/components/EmptyState";
 import NewsletterForm from "@/components/NewsletterForm";
 import { getFeaturedProducts } from "@/lib/products";
@@ -19,8 +20,8 @@ const CATEGORY_NOTES: Record<string, string> = {
 };
 
 export default function HomePage() {
-  const featured = getFeaturedProducts().slice(0, 3);
-  const articles = getAllArticles().slice(0, 3);
+  const featured = getFeaturedProducts();
+  const articles = getAllArticles();
 
   return (
     <>
@@ -93,12 +94,12 @@ export default function HomePage() {
           </div>
 
           {featured.length > 0 ? (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {featured.map((product) => (
-                <ProductCard key={product.slug} product={product} />
-              ))}
-            </div>
-          ) : (
+           <HomeCarousel
+          items={featured.map((product) => (
+            <ProductCard key={product.slug} product={product} />
+           ))}
+        />
+       ) : (
             <EmptyState title="The shelves are being built.">
               <p>
                 Nothing&rsquo;s stocked here yet — the first products are still
@@ -137,12 +138,12 @@ export default function HomePage() {
           </div>
 
           {articles.length > 0 ? (
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-              {articles.map((article) => (
-                <ArticleCard key={article.slug} article={article} />
-              ))}
-            </div>
-          ) : (
+            <HomeCarousel
+           items={articles.map((article) => (
+             <ArticleCard key={article.slug} article={article} />
+         ))}
+        />
+       ) : (
             <EmptyState title="Nothing written yet — on purpose.">
               <p>
                 We&rsquo;d rather publish nothing than publish filler. The
