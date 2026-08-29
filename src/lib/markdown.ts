@@ -18,8 +18,14 @@ function makeImagesResponsive(html: string): string {
  * the repo), so this intentionally does not run through a client-side
  * sanitizer — treat /content as trusted, first-party content.
  */
+function makeLinksOpenInNewTab(html: string): string {
+  return html.replace(
+    /<a href=/g,
+    '<a target="_blank" rel="noopener noreferrer" href='
+  );
+}
 export function renderMarkdown(markdown: string): string {
   if (!markdown) return "";
   const html = marked.parse(markdown, { async: false }) as string;
-  return makeImagesResponsive(html);
+return makeLinksOpenInNewTab(makeImagesResponsive(html));
 }
