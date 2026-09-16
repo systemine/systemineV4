@@ -5,7 +5,7 @@ price: "$3.33"
 categories:
   - "Mental & Emotional"
   - "Body & Health"
-cover: "/images/products/21mirrors/21mcoversmall.png"
+cover: "/images/products/21mirrors/cover2.png"
 gallery:
   - "/images/products/21mirrors/mu1.png"
   - "/images/products/21mirrors/mu2.png"
