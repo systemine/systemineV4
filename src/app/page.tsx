@@ -4,12 +4,14 @@ import Container from "@/components/Container";
 import Sprig from "@/components/Sprig";
 import ProductCard from "@/components/ProductCard";
 import ArticleCard from "@/components/ArticleCard";
+import FreeResourceCard from "@/components/FreeResourceCard";
 import HomeCarousel from "@/components/HomeCarousel";
 import EmptyState from "@/components/EmptyState";
 import NewsletterForm from "@/components/NewsletterForm";
 import AnimatedShelf from "@/components/AnimatedShelf";
 import { getFeaturedProducts } from "@/lib/products";
 import { getAllArticles } from "@/lib/articles";
+import { getFeaturedFreeResources } from "@/lib/free-resources";
 import { CATEGORY_ORDER } from "@/lib/constants";
 
 const CATEGORY_NOTES: Record<string, string> = {
@@ -23,6 +25,7 @@ const CATEGORY_NOTES: Record<string, string> = {
 export default function HomePage() {
   const featured = getFeaturedProducts();
   const articles = getAllArticles();
+  const freeResources = getFeaturedFreeResources();
 
   return (
     <>
@@ -144,6 +147,51 @@ export default function HomePage() {
                 </code>{" "}
                 whenever it&rsquo;s ready, and it&rsquo;ll appear here without
                 touching a line of code.
+              </p>
+            </EmptyState>
+          )}
+        </Container>
+      </section>
+
+            <SectionDivider />
+
+      {/* Free Resources */}
+      <section className="py-6">
+        <Container>
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <h2 className="font-display text-2xl text-ink sm:text-3xl">
+                Free resources
+              </h2>
+              <p className="mt-2 font-body text-sm text-ink-soft">
+                Small tools for the moments that need a little extra room.
+              </p>
+            </div>
+
+            <Link
+              href="/free-resources"
+              className="underline-grow hidden font-body text-sm text-wood sm:inline"
+            >
+              See everything
+            </Link>
+          </div>
+
+          {freeResources.length > 0 ? (
+            <HomeCarousel
+             items={freeResources.map((resource) => (
+                <FreeResourceCard key={resource.slug} resource={resource} />
+           ))}
+           />
+        ) : (
+            <EmptyState title="Free resources are coming.">
+              <p>
+                Small, practical tools are being made and tested. Add a
+                markdown file to{" "}
+                <code className="rounded bg-paper px-1.5 py-0.5 text-xs">
+                  content/free-resources
+                </code>{" "}
+                whenever a resource is ready, and it&rsquo;ll appear here
+                automatically.
               </p>
             </EmptyState>
           )}

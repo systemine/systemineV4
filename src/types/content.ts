@@ -78,3 +78,17 @@ export interface Portal {
   published: boolean;
   contentHtml: string;
 }
+export interface FreeResource {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  cover: string | null;
+  tags: string[];
+  featured: boolean;
+  published: boolean;
+  kitFormId: string;
+  resourceUrl: string;
+  resourceLabel: string;
+  contentHtml: string;
+}

@@ -10,6 +10,7 @@ export const SITE = {
 export const NAV_LINKS = [
   { href: "/shelves", label: "Browse the Shelves" },
   { href: "/articles", label: "Articles" },
+  { href: "/free-resources", label: "Free Resources" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
