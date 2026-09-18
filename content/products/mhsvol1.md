@@ -34,7 +34,7 @@ published: true
 purchase_url: "https://rzp.io/rzp/HpbmVbVI"
 purchase_url_india: "https://rzp.io/rzp/MimwGyxU"
 portal_slug: "mhsvol1anxiety"
-description: "A self-guided space for exploring and working with anxiety. Anxiety doesn't always need more information. Sometimes you need somewhere to put it.."
+description: "A self-guided, art-therapy based space for exploring and working with anxiety. Anxiety doesn't always need more information. Sometimes you need somewhere to put it.."
 ---
 The Mental Health Studio gives you a private, structured space to work with what's happening through 12 evidence-informed, art-based exercises, built around four different ways of working:
 
