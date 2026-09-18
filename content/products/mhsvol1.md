@@ -27,7 +27,7 @@ resources:
   - label: "A COMPLETE SELF-GUIDED SOLUTION"
     file: "/images/products/mhsvol1/self-guided.png"
   
-tags: ["Emotions", "Psychology", "Art-Therapy","Digital Tool"]
+tags: ["Emotions", "Psychology", "Art-Therapy","Digital Tool", "Behavioural Art"]
 featured: true
 published: true
 
