@@ -14,8 +14,8 @@ const examineOptions = [
 ];
 
 export default function ThoughtCheckPage() {
-  const [thought, setThought] = useState("");
-  const [alternative, setAlternative] = useState("");
+const [source, setSource] = useState("");
+ const [thought, setThought] = useState("");  const [alternative, setAlternative] = useState("");
   const [before, setBefore] = useState(3);
   const [after, setAfter] = useState(3);
   const [selected, setSelected] = useState<string[]>([]);
@@ -556,6 +556,15 @@ export default function ThoughtCheckPage() {
             >
               Start again
             </button>
+            {source === "alcohol-buddy" && (
+  <a
+    href="/"
+    className="thought-button secondary"
+    style={{ textDecoration: "none", display: "inline-flex", alignItems: "center" }}
+  >
+    Back to Alcohol Buddy
+  </a>
+)}
           </div>
         </section>
       </div>
