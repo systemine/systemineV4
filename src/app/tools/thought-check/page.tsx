@@ -411,7 +411,7 @@ export default function ThoughtCheckPage() {
             <h2>Build a fairer picture</h2>
 
             <p>
-              Don't argue with yourself. Slow the thought down and look at
+              Don&apos;t argue with yourself. Slow the thought down and look at
               what you may be leaving out.
             </p>
 
