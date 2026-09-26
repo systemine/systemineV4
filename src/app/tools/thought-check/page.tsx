@@ -447,7 +447,7 @@ export default function ThoughtCheckPage() {
               <div className="thought-step">Give it a moment</div>
 
               <p>
-                You don't have to decide whether the new interpretation is
+                You don&apos;t have to decide whether the new interpretation is
                 true yet. Step away from the thought for a short moment and
                 let the information settle.
               </p>
