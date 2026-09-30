@@ -14,8 +14,8 @@ const examineOptions = [
 ];
 
 export default function ThoughtCheckPage() {
-const [source, setSource] = useState("");
- const [thought, setThought] = useState("");  const [alternative, setAlternative] = useState("");
+  const [thought, setThought] = useState("");
+  const [alternative, setAlternative] = useState("");
   const [before, setBefore] = useState(3);
   const [after, setAfter] = useState(3);
   const [selected, setSelected] = useState<string[]>([]);
@@ -326,6 +326,29 @@ const [source, setSource] = useState("");
           font-size: 14px;
         }
 
+        .thought-progression {
+          margin-top: 24px;
+          padding: 24px;
+          border-radius: 16px;
+          background: #111111;
+          border: 1px solid #3b3b37;
+        }
+
+        .thought-progression h3 {
+          margin: 0 0 8px;
+          font-size: 20px;
+          line-height: 1.25;
+          letter-spacing: -.02em;
+        }
+
+        .thought-progression p {
+          color: #b5b5ae;
+          font-size: 14px;
+          line-height: 1.6;
+          margin: 0;
+          max-width: 680px;
+        }
+
         .thought-actions {
           display: flex;
           justify-content: space-between;
@@ -544,6 +567,18 @@ const [source, setSource] = useState("");
               : "Complete the thought check above, then return here after the pause."}
           </div>
 
+          {complete && (
+            <div className="thought-progression">
+              <h3>Want to take this further?</h3>
+
+              <p>
+                If you&apos;re working specifically with alcohol, explore
+                Systemine&apos;s Alcohol Regulation Buddy for a larger set of
+                tools around triggers, urges, drinking patterns and regulation.
+              </p>
+            </div>
+          )}
+
           <div className="thought-actions">
             <span style={{ color: "#777", fontSize: 13 }}>
               This exercise is for reflection, not diagnosis.
@@ -556,15 +591,6 @@ const [source, setSource] = useState("");
             >
               Start again
             </button>
-            {source === "alcohol-buddy" && (
-  <a
-    href="/"
-    className="thought-button secondary"
-    style={{ textDecoration: "none", display: "inline-flex", alignItems: "center" }}
-  >
-    Back to Alcohol Buddy
-  </a>
-)}
           </div>
         </section>
       </div>
