@@ -44,40 +44,41 @@ function readVersions(data: Record<string, unknown>): ProductVersion[] {
 
   if (!Array.isArray(raw)) return [];
 
-  return raw
-    .map((entry) => {
-      if (!entry || typeof entry !== "object") return null;
+  const versions: ProductVersion[] = [];
 
-      const e = entry as Record<string, unknown>;
+  for (const entry of raw) {
+    if (!entry || typeof entry !== "object") continue;
 
-      const name = typeof e.name === "string" ? e.name : "";
-      const price = typeof e.price === "string" ? e.price : "";
-      const priceIndia =
-        typeof e.priceIndia === "string" ? e.priceIndia : undefined;
-      const purchaseUrl =
-        typeof e.purchaseUrl === "string"
-          ? e.purchaseUrl
-          : typeof e.purchase_url === "string"
-            ? e.purchase_url
-            : "";
-      const purchaseUrlIndia =
-        typeof e.purchaseUrlIndia === "string"
-          ? e.purchaseUrlIndia
-          : typeof e.purchase_url_india === "string"
-            ? e.purchase_url_india
-            : undefined;
+    const e = entry as Record<string, unknown>;
 
-      if (!name || !price || !purchaseUrl) return null;
+    const name = typeof e.name === "string" ? e.name : "";
+    const price = typeof e.price === "string" ? e.price : "";
 
-      return {
-        name,
-        price,
-        priceIndia,
-        purchaseUrl,
-        purchaseUrlIndia,
-      };
-    })
-    .filter((version): version is ProductVersion => version !== null);
+    const purchaseUrl =
+      typeof e.purchaseUrl === "string"
+        ? e.purchaseUrl
+        : typeof e.purchase_url === "string"
+          ? e.purchase_url
+          : "";
+
+    const purchaseUrlIndia =
+      typeof e.purchaseUrlIndia === "string"
+        ? e.purchaseUrlIndia
+        : typeof e.purchase_url_india === "string"
+          ? e.purchase_url_india
+          : undefined;
+
+    if (!name || !price || !purchaseUrl) continue;
+
+    versions.push({
+      name,
+      price,
+      purchaseUrl,
+      purchaseUrlIndia,
+    });
+  }
+
+  return versions;
 }
 
 function readProductFile(filename: string): Product | null {
