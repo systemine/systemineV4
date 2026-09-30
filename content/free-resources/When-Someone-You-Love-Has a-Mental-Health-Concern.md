@@ -8,7 +8,7 @@ tags:
   - "Therapy"
   - "Self-reflection"
   - "Mental health"
-featured: true
+featured: false
 published: true
 kit_form_id: "9931220"
 resource_url: "/files/free-resources/second.pdf"
