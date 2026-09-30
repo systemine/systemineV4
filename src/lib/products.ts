@@ -3,7 +3,12 @@ import path from "path";
 import matter from "gray-matter";
 import { renderMarkdown } from "./markdown";
 import { CATEGORY_ORDER } from "./constants";
-import type { Product, ProductResource, Shelf } from "@/types/content";
+import type {
+  Product,
+  ProductResource,
+  ProductVersion,
+  Shelf,
+} from "@/types/content";
 
 const PRODUCTS_DIR = path.join(process.cwd(), "content", "products");
 
@@ -16,16 +21,63 @@ function readResources(data: Record<string, unknown>): ProductResource[] {
       if (typeof entry === "string") {
         return { label: path.basename(entry), file: entry };
       }
+
       if (entry && typeof entry === "object") {
         const e = entry as Record<string, unknown>;
         const file = typeof e.file === "string" ? e.file : "";
+
         if (!file) return null;
-        const label = typeof e.label === "string" ? e.label : path.basename(file);
+
+        const label =
+          typeof e.label === "string" ? e.label : path.basename(file);
+
         return { label, file };
       }
+
       return null;
     })
     .filter((r): r is ProductResource => r !== null);
+}
+
+function readVersions(data: Record<string, unknown>): ProductVersion[] {
+  const raw = data.versions;
+
+  if (!Array.isArray(raw)) return [];
+
+  return raw
+    .map((entry) => {
+      if (!entry || typeof entry !== "object") return null;
+
+      const e = entry as Record<string, unknown>;
+
+      const name = typeof e.name === "string" ? e.name : "";
+      const price = typeof e.price === "string" ? e.price : "";
+      const priceIndia =
+        typeof e.priceIndia === "string" ? e.priceIndia : undefined;
+      const purchaseUrl =
+        typeof e.purchaseUrl === "string"
+          ? e.purchaseUrl
+          : typeof e.purchase_url === "string"
+            ? e.purchase_url
+            : "";
+      const purchaseUrlIndia =
+        typeof e.purchaseUrlIndia === "string"
+          ? e.purchaseUrlIndia
+          : typeof e.purchase_url_india === "string"
+            ? e.purchase_url_india
+            : undefined;
+
+      if (!name || !price || !purchaseUrl) return null;
+
+      return {
+        name,
+        price,
+        priceIndia,
+        purchaseUrl,
+        purchaseUrlIndia,
+      };
+    })
+    .filter((version): version is ProductVersion => version !== null);
 }
 
 function readProductFile(filename: string): Product | null {
@@ -43,14 +95,15 @@ function readProductFile(filename: string): Product | null {
     title: data.title,
     price: data.price ? String(data.price) : "",
     categories: Array.isArray(data.categories)
-    ? data.categories
-    : data.category
-    ? [data.category]
-    : ["Uncategorized"],
+      ? data.categories
+      : data.category
+        ? [data.category]
+        : ["Uncategorized"],
     cover: data.cover || data.image || null,
     gallery: Array.isArray(data.gallery) ? data.gallery : [],
     video: data.video || null,
     resources: readResources(data),
+    versions: readVersions(data),
     tags: Array.isArray(data.tags) ? data.tags : [],
     featured: Boolean(data.featured),
     published: data.published !== false,

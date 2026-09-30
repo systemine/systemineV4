@@ -20,6 +20,7 @@ export function generateMetadata({
 }): Metadata {
   const product = getProductBySlug(params.slug);
   if (!product) return {};
+
   return {
     title: product.title,
     description: product.description,
@@ -29,15 +30,18 @@ export function generateMetadata({
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug);
+
   if (!product) notFound();
 
   const related = getAllProducts()
-  .filter(
-    (p) =>
-      p.slug !== product.slug &&
-      p.categories.some((category) => product.categories.includes(category))
-  )
-  .slice(0, 3);
+    .filter(
+      (p) =>
+        p.slug !== product.slug &&
+        p.categories.some((category) => product.categories.includes(category))
+    )
+    .slice(0, 3);
+
+  const hasVersions = product.versions && product.versions.length > 0;
 
   return (
     <Container className="py-16 sm:py-20">
@@ -68,11 +72,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
         <div>
           <span className="font-body text-xs uppercase tracking-wide text-moss">
-          {product.categories.join(" · ")}
+            {product.categories.join(" · ")}
           </span>
+
           <h1 className="mt-3 font-display text-3xl text-ink sm:text-4xl">
             {product.title}
           </h1>
+
           <p className="mt-4 font-body text-lg text-ink-soft">
             {product.description}
           </p>
@@ -90,16 +96,67 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          <div className="mt-8 flex flex-wrap items-center gap-5 border-y border-line py-6">
-            <span className="font-display text-2xl text-ink">
-              {product.price}
-            </span>
-            <PurchaseButton
-             purchaseUrl={product.purchaseUrl}
-             purchaseUrlIndia={product.purchaseUrlIndia}
-             title={product.title}
-             />
-          </div>
+          {hasVersions ? (
+            <div className="mt-8 border-y border-line py-7">
+              <div>
+                <h2 className="font-display text-2xl text-ink">
+                  Choose your version
+                </h2>
+
+                <p className="mt-2 font-body text-sm text-ink-soft">
+                  Both versions contain the complete core system. Premium adds
+                  deeper visual insight and analytical views.
+                </p>
+              </div>
+
+              <div className="mt-6 grid gap-4">
+                {product.versions?.map((version) => (
+                  <div
+                    key={version.name}
+                    className="rounded-xl2 border border-line bg-paper-alt p-5"
+                  >
+                    <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <h3 className="font-display text-xl text-ink">
+                          {version.name}
+                        </h3>
+
+                        <div className="mt-2 flex flex-wrap items-baseline gap-2">
+                          <span className="font-display text-2xl text-ink">
+                            {version.price}
+                          </span>
+
+                          {version.priceIndia && (
+                            <span className="font-body text-sm text-ink-soft">
+                              · {version.priceIndia} in India
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <PurchaseButton
+                        purchaseUrl={version.purchaseUrl}
+                        purchaseUrlIndia={version.purchaseUrlIndia}
+                        title={`${product.title} — ${version.name}`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="mt-8 flex flex-wrap items-center gap-5 border-y border-line py-6">
+              <span className="font-display text-2xl text-ink">
+                {product.price}
+              </span>
+
+              <PurchaseButton
+                purchaseUrl={product.purchaseUrl}
+                purchaseUrlIndia={product.purchaseUrlIndia}
+                title={product.title}
+              />
+            </div>
+          )}
 
           {product.contentHtml && (
             <div
@@ -110,13 +167,19 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
           {product.video && (
             <div className="mt-8">
-              <VideoEmbed url={product.video} title={`${product.title} — preview video`} />
+              <VideoEmbed
+                url={product.video}
+                title={`${product.title} — preview video`}
+              />
             </div>
           )}
 
           {product.gallery.length > 0 && (
             <div className="mt-10">
-              <ProductGallery images={product.gallery} title={product.title} />
+              <ProductGallery
+                images={product.gallery}
+                title={product.title}
+              />
             </div>
           )}
 
@@ -131,8 +194,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {related.length > 0 && (
         <div className="mt-24 border-t border-line pt-12">
           <h2 className="font-display text-2xl text-ink">
-           More from {product.categories[0]}
+            More from {product.categories[0]}
           </h2>
+
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <Link

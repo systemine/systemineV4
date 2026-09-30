@@ -3,6 +3,14 @@ export interface ProductResource {
   file: string;
 }
 
+export interface ProductVersion {
+  name: string;
+  price: string;
+  priceIndia?: string;
+  purchaseUrl: string;
+  purchaseUrlIndia?: string;
+}
+
 export interface Product {
   slug: string;
   title: string;
@@ -17,6 +25,7 @@ export interface Product {
   published: boolean;
   purchaseUrl: string;
   purchaseUrlIndia?: string;
+  versions?: ProductVersion[];
   portalSlug: string | null;
   description: string;
   contentHtml: string;
@@ -78,6 +87,7 @@ export interface Portal {
   published: boolean;
   contentHtml: string;
 }
+
 export interface FreeResource {
   slug: string;
   title: string;
