@@ -11,12 +11,12 @@ video: "/images/products/mhsvol1/mhsvol1teaser.mp4"
 faq:
   - question: "Do I need to be an artist?"
     answer: "No. The Studio is designed for everyone. You don't need any artistic experience to use the exercises."
-  - question: "Do I need a paid Notion account?"
-    answer: "No. The Studio is designed to be used with a regular Notion account."
   - question: "Do I have to complete all the exercises?"
     answer: "No. There is no required order and no schedule to follow. Start wherever you are."
   - question: "Can I use the Studio more than once?"
     answer: "Yes. Your Studio is designed to be returned to whenever you need it."
+  - question: "Do I need a paid Notion account?"
+    answer: "Yes. Vol.01 requires a paid Notion plan because its visualisations and deeper analytical views work across more layers of data, helping the system explore patterns that are less about simple numbers and more about inner calibration."
 
 changelog:
   - version: "1.0"

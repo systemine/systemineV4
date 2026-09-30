@@ -64,6 +64,9 @@ Inside the Studio :
 
 - A reusable Notion workspace
 
+Requires -
+- A paid Notion plan. Vol.01  uses advanced Notion features for its visualisations, charts and deeper analytical views.
+
 
 *You don't need to be an artist.*
 
