@@ -285,7 +285,7 @@ export default function Header() {
 
               {searchError && !loading && (
                 <p className="px-3 py-5 text-center font-body text-sm text-ink-soft">
-                  Search couldn't load just now. Please try again.
+                  Search couldn&apos;t load just now. Please try again.
                 </p>
               )}
 
