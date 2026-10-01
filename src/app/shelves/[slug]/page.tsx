@@ -3,11 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
+import ProductDescription from "@/components/ProductDescription";
 import ProductGallery from "@/components/ProductGallery";
 import ResourceList from "@/components/ResourceList";
 import VideoEmbed from "@/components/VideoEmbed";
 import PurchaseButton from "@/components/PurchaseButton";
-import { getAllProductSlugs, getAllProducts, getProductBySlug } from "@/lib/products";
+import {
+  getAllProductSlugs,
+  getAllProducts,
+  getProductBySlug,
+} from "@/lib/products";
 
 export function generateStaticParams() {
   return getAllProductSlugs().map((slug) => ({ slug }));
@@ -79,9 +84,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             {product.title}
           </h1>
 
-          <p className="mt-4 font-body text-lg text-ink-soft">
-            {product.description}
-          </p>
+          <ProductDescription description={product.description} />
 
           {product.tags.length > 0 && (
             <div className="mt-5 flex flex-wrap gap-2">
@@ -159,11 +162,18 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           )}
 
           {product.contentHtml && (
-            <div
-              className="prose-paper mt-8 max-w-prose"
-              dangerouslySetInnerHTML={{ __html: product.contentHtml }}
-            />
-          )}
+  <details className="product-details mt-8 max-w-prose">
+    <summary className="cursor-pointer list-none font-body text-sm font-medium text-wood underline underline-offset-4 transition-colors hover:text-ink">
+      <span className="when-closed">See more</span>
+      <span className="when-open">See less</span>
+    </summary>
+
+    <div
+      className="prose-paper mt-5"
+      dangerouslySetInnerHTML={{ __html: product.contentHtml }}
+    />
+  </details>
+)}
 
           {product.video && (
             <div className="mt-8">
@@ -213,3 +223,4 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     </Container>
   );
 }
+

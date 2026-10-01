@@ -226,3 +226,18 @@ select:focus-visible,
 .underline-grow:focus-visible::after {
   width: 100%;
 }
+.product-details .when-open {
+  display: none;
+}
+
+.product-details[open] .when-closed {
+  display: none;
+}
+
+.product-details[open] .when-open {
+  display: inline;
+}
+
+.product-details summary::-webkit-details-marker {
+  display: none;
+}
