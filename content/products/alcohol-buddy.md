@@ -17,6 +17,8 @@ resources:
     file: "/images/products/alcohol-buddy/included1.png"
   - label: "IN PREMIUM"
     file: "/images/products/alcohol-buddy/included2.png"  
+  - label: "THE FINANCIAL MIRROR"
+    file: "/images/products/alcohol-buddy/included3.png"
 tags:
   - "Alcohol"
   - "CBT"
@@ -85,6 +87,26 @@ Additional features include:
 - Requires a paid Notion plan. Premium uses advanced Notion features for its visualisations, charts and deeper analytical views.
 
 Premium is for people who want to go beyond recording what happened and start looking at what their collected patterns may be showing them.
+
+## Meet the Financial Mirror
+
+What could your drinking habits be costing you beyond money? And what else could that money make possible?
+
+The Financial Mirror is an interactive financial-reflection tool designed to help you explore the relationship between drinking and spending, without shame, pressure or a sobriety scorecard.
+
+**Use it to:**
+
+Understand your spending: Record alcohol-related expenses and explore how they add up over time.
+Explore possible savings: Adjust your drinking-related spending and see what you could potentially save if those expenses changed.
+Set a meaningful goal: Connect the numbers to something you would genuinely like to work towards.
+Track your financial progress: Record actual savings separately from hypothetical estimates, so you can distinguish what you could save from what you've really set aside.
+Visualize the possibilities: Explore your spending and savings patterns through an interactive monthly chart.
+
+Whether you're curious about where your money goes or imagining what you could do with it instead, the Financial Mirror gives you a practical way to explore the numbers and decide what matters to you.
+
+**No guilt. No financial moralizing. Just information, possibilities, and room to make your own choices.**
+
+You'll find the Financial Mirror directly on your Alcohol Regulation Buddy dashboard, ready to explore alongside your other tools.
 
 ### Built from mental-health knowledge and lived reality
 
