@@ -531,7 +531,7 @@ export default function FinancialMirrorPage() {
             <section className="fm-card" style={panelStyle}>
               <div className="fm-eyebrow">EXPLORE A SCENARIO</div>
               <h2 className="fm-heading" style={{ margin: "10px 0" }}>What might a change make possible?</h2>
-              <p className="fm-subtitle">Adjust the hypothetical reduction. This doesn't predict your behaviour or require you to change anything.</p>
+              <p className="fm-subtitle">Adjust the hypothetical reduction. This doesn&apos;t predict your behaviour or require you to change anything.</p>
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: 22, alignItems: "baseline" }}>
                 <span className="fm-small" style={mutedStyle}>Potential annual savings</span>
                 <span className="fm-stat" style={{ color: palette.blue }}>{money(potentialSavings, currency)}</span>
@@ -553,7 +553,7 @@ export default function FinancialMirrorPage() {
               <div className="fm-eyebrow">YOUR RECORD</div>
               <h2 className="fm-heading" style={{ margin: "9px 0 15px" }}>A clearer picture, over time</h2>
               {data.entries.length === 0 ? (
-                <p className="fm-subtitle">No entries yet. When you add them, they'll appear here in date order.</p>
+                <p className="fm-subtitle">No entries yet. When you add them, they&apos;ll appear here in date order.</p>
               ) : (
                 data.entries.slice().sort((a, b) => b.date.localeCompare(a.date)).map((entry) => (
                   <div className="fm-entry" key={entry.id}>
